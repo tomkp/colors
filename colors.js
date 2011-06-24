@@ -22,7 +22,7 @@ var Colors = (function() {
     };
 
 
-    var percent = function(value, range) {
+    var fraction = function(value, range) {
         range = defaultRange(range);
         var min = rgb(range.min);
         var max = rgb(range.max);
@@ -34,15 +34,15 @@ var Colors = (function() {
     };
 
 
-    var gradient = function(stops, range) {
+    var range = function(numIncrements, range) {
         range = defaultRange(range);
         var min = rgb(range.min);
         var max = rgb(range.max);
-        var inc = [(max[0] - min[0]) / (stops - 1),
-            (max[1] - min[1]) / (stops - 1),
-            (max[2] - min[2]) / (stops - 1)];
+        var inc = [(max[0] - min[0]) / (numIncrements - 1),
+            (max[1] - min[1]) / (numIncrements - 1),
+            (max[2] - min[2]) / (numIncrements - 1)];
         var results = [];
-        for (var i = 0; i < stops; i++) {
+        for (var i = 0; i < numIncrements; i++) {
             var color = hex([
                 parseInt(min[0] + (i * inc[0])),
                 parseInt(min[1] + (i * inc[1])),
@@ -55,8 +55,8 @@ var Colors = (function() {
 
 
     return {
-        gradient:gradient,
-        percent:percent
+        range: range,
+        fraction: fraction
     }
 
 })();
