@@ -5,14 +5,42 @@
 
     <script src="colors.js"></script>
 
-    <script>
+      <style>
 
-        console.info(Colors.shades(10, {max:"#ff0000"}));
-        console.info(Colors.percent(.5, {max:"#ff0000"}));
+          span {
+              text-align: center;
+              display: inline-block;
+              margin:  10px;
+              padding:  10px;
+              width: 100px;
+              height: 100px;
+              line-height: 100px;
+              border-radius: 100px;
+          }
 
-    </script>
+      </style>
 </head>
 <body>
 
+
+<div id="gradient">
+
+</div>
+
 </body>
+
+
+<script>
+
+    var gradients = Colors.gradient(10, {min:"#ff00ff", max:"#00ffff"});
+
+
+    var html = "";
+    for (var i = 0; i < gradients.length; i++) {
+        var gradient = gradients[i];
+        html += "<span style='background-color: " + gradient + "'>" + gradient + "</span>";
+    }
+    document.getElementById("gradient").innerHTML = html;
+
+</script>
 </html>

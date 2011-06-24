@@ -34,7 +34,7 @@ var Colors = (function() {
     };
 
 
-    var shades = function(stops, range) {
+    var gradient = function(stops, range) {
         range = defaultRange(range);
         var min = rgb(range.min);
         var max = rgb(range.max);
@@ -55,7 +55,7 @@ var Colors = (function() {
 
 
     return {
-        shades:shades,
+        gradient:gradient,
         percent:percent
     }
 
